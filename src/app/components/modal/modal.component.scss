@@ -1,0 +1,110 @@
+.fade {
+  background-color: rgb(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.container {
+  position: fixed;
+  top: calc(50vh - 256px / 2);
+  left: calc(50vw - 756px / 2);
+  display: flex;
+  gap: 20px;
+  width: 756px;
+  height: 256px;
+  border-radius: 10px;
+  padding: 15px 20px;
+  background-color: #fff;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+
+  &__wrapper {
+    width: 150px;
+    height: 225px;
+  }
+}
+
+.film {
+  display: flex;
+  flex-direction: column;
+  width: 546px;
+}
+
+.film-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__name {
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 600;
+  }
+
+  &__genre, &__year, {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  &__description {
+    font-size: 12px;
+    line-height: 14px;
+    height: 140px;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 26px;
+  font-size: 14px;
+  line-height: 14px;
+  height: 36px;
+
+  &__like-button {
+    padding: 8px;
+    border-radius: 4px;
+    color: #FF4081;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      background-color: #FF408110;
+    }
+  }
+
+  &__dislike-button {
+    padding: 8px;
+    border-radius: 4px;
+    color: #3F51B5;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      background-color: #3F51B510;
+    }
+  }
+
+  &__close-button {
+    padding: 8px;
+    border-radius: 4px;
+    color: #3F51B5;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      background-color: #3F51B510;
+    }
+  }
+}
+
+

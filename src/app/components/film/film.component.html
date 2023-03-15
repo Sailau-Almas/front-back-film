@@ -1,0 +1,8 @@
+<div class="film-card">
+  <div class="image-wrapper">
+    <img src="./app/stub/images/{{film.id}}.jpeg" [alt]="film.name" class="image"/>
+  </div>
+  <h2 class="film-name">{{film.name}}</h2>
+  <p class="genre">{{getFilmGenres(film)}}</p>
+  <p class="year">{{film.year}}</p>
+</div>

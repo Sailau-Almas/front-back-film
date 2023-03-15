@@ -1,0 +1,23 @@
+<div (click)="modalService.close()" class="fade"></div>
+
+<div class="container">
+  <div class="image__wrapper">
+    <img src="./app/stub/images/{{film.id}}.jpeg" [alt]="film.name" class="image"/>
+  </div>
+  <div class="film">
+    <div class="film-info">
+      <div class="film-info__name">{{film.name}}</div>
+      <div class="film-info__genre">{{getFilmGenres(film)}}</div>
+      <div class="film-info__year">{{film.year}}</div>
+      <div class="film-info__description">{{film.description}}</div>
+    </div>
+    <div class="buttons">
+      <div (click)="likeDislikeHandler(film)"
+           [ngClass]="{
+        'buttons__like-button': !isLiked(film),
+        'buttons__dislike-button': isLiked(film)
+      }">{{ isLiked(film) ? 'Удалить из лучших фильмов' : 'Выбрать лучший фильм'}}</div>
+      <div class="buttons__close-button" (click)="modalService.close()">Закрыть</div>
+    </div>
+  </div>
+</div>

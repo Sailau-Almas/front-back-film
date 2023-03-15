@@ -1,0 +1,100 @@
+.fade {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.container {
+  position: fixed;
+  top: calc(50vh - 128px);
+  left: calc(50vw - 378px);
+  display: flex;
+  gap: 20px;
+  width: 756px;
+  height: 256px;
+  border-radius: 10px;
+  padding: 15px 20px;
+  background-color: #fff;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.image__wrapper {
+  width: 150px;
+  height: 225px;
+}
+
+.film {
+  display: flex;
+  flex-direction: column;
+  width: 546px;
+}
+
+.film-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.film-info__name {
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 600;
+}
+.film-info__genre, .film-info__year {
+  font-size: 12px;
+  line-height: 14px;
+}
+.film-info__description {
+  font-size: 12px;
+  line-height: 14px;
+  height: 140px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 26px;
+  font-size: 14px;
+  line-height: 14px;
+  height: 36px;
+}
+.buttons__like-button {
+  padding: 8px;
+  border-radius: 4px;
+  color: #FF4081;
+  cursor: pointer;
+  user-select: none;
+}
+.buttons__like-button:hover {
+  background-color: rgba(255, 64, 129, 0.062745098);
+}
+.buttons__dislike-button {
+  padding: 8px;
+  border-radius: 4px;
+  color: #3F51B5;
+  cursor: pointer;
+  user-select: none;
+}
+.buttons__dislike-button:hover {
+  background-color: rgba(63, 81, 181, 0.062745098);
+}
+.buttons__close-button {
+  padding: 8px;
+  border-radius: 4px;
+  color: #3F51B5;
+  cursor: pointer;
+  user-select: none;
+}
+.buttons__close-button:hover {
+  background-color: rgba(63, 81, 181, 0.062745098);
+}
+
+/*# sourceMappingURL=modal.component.css.map */
