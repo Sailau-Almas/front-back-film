@@ -1,4 +1,16 @@
-# TyumenPromTechBezopasnost
+# Тестовое задание для ПромТехБезопасность
+
+Стек технологий:
+Angular, Angular-material, SCSS, средства самого Angular: rxJs, pipes, services
+
+Проект представляет собой каталог фильмов, с возможностью сортировки фильмов по жанру, с помощью select, а также по названию, с помощью поля ввода input.
+при клике по карточке фильма появляется модальное окно с описанием и возможностью добавить/удалить этот фильм в/из категорию "самый лучший фильм". В этой категории может присутствовать только один фильм. "Самый лучший фильм" отображается внизу страницы. 
+
+![image](https://user-images.githubusercontent.com/102058870/225305127-22af313b-9c9e-4a13-9ef9-9e2c5daa3494.png)
+
+![image](https://user-images.githubusercontent.com/102058870/225305337-3c787efa-e3a0-4a6b-9008-ab901cd1112a.png)
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2.
 
