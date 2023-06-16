@@ -1,4 +1,4 @@
-# Тестовое задание для ПромТехБезопасность
+
 
 Стек технологий:
 Angular, Angular-material, SCSS, средства самого Angular: rxJs, pipes, services
