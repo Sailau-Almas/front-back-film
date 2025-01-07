@@ -1,0 +1,36 @@
+/* header.component.scss */
+
+/* Общие стили для header */
+header {
+  background-color: #343a40; /* Темный фон */
+  color: white;              /* Белый текст */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Стили для логотипа или названия */
+header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Стили для навигации */
+nav {
+  display: flex;
+  gap: 15px;
+}
+
+/* Стили для ссылок в навигации */
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+/* Ховер эффекты для ссылок */
+nav a:hover {
+  color: #ff6600; /* Цвет при наведении */
+}

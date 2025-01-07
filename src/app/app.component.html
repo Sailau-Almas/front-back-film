@@ -1,33 +1,34 @@
-<div class="wrapper">
-  <div class="container">
-    <h1 class="title">{{title}}</h1>
-    <div class="search-block">
+<app-header></app-header> 
+ <div class="wrapper">
+    <div class="container">
+      <h1 class="title">{{title}}</h1>
+      <div class="search-block">
 
-      <mat-form-field appearance="fill">
-        <mat-label>Все</mat-label>
-        <mat-select (selectionChange)="onSelect($event)">
-          <mat-option [value]="resetSearch">Все</mat-option>
-          <mat-option *ngFor="let genre of genreList" [value]="getSelectedGenreID(genre.genre)">{{genre.genre}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Все</mat-label>
+          <mat-select (selectionChange)="onSelect($event)">
+            <mat-option [value]="resetSearch">Все</mat-option>
+            <mat-option *ngFor="let genre of genreList" [value]="getSelectedGenreID(genre.genre)">{{genre.genre}}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <input matInput type="text"
-               class="search"
-               placeholder="Введите название"
-               [(ngModel)]="filmName"
-        >
-      </mat-form-field>
+        <mat-form-field appearance="fill">
+          <input matInput type="text"
+                class="search"
+                placeholder="Введите название"
+                [(ngModel)]="filmName"
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="film-container">
+        <app-film *ngFor="let film of sortedFilms | filterFilms: filmName"
+                  [film]="film"
+                  (click)="modalService.open(film)"></app-film>
+      </div>
+
+      <div class="liked-film-tag" *ngIf="isLikedFilm$ | async">Самый лучший фильм</div>
+      <app-film *ngIf="isLikedFilm$ | async" [film]="getLikedFilm()"></app-film>
+      <app-modal *ngIf="modalService.isVisible$ | async" [film]="modalService.clickedFilm" [isLikedFilm$]="isLikedFilm$"></app-modal>
     </div>
-
-    <div class="film-container">
-      <app-film *ngFor="let film of sortedFilms | filterFilms: filmName"
-                [film]="film"
-                (click)="modalService.open(film)"></app-film>
-    </div>
-
-    <div class="liked-film-tag" *ngIf="isLikedFilm$ | async">Самый лучший фильм</div>
-    <app-film *ngIf="isLikedFilm$ | async" [film]="getLikedFilm()"></app-film>
-    <app-modal *ngIf="modalService.isVisible$ | async" [film]="modalService.clickedFilm" [isLikedFilm$]="isLikedFilm$"></app-modal>
   </div>
-</div>
