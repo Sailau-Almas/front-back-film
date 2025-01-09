@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: '', component: FilmComponent },
   { path: 'login', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
   { path: 'register', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
-  { path: '**', redirectTo: '' } // Редирект на главную для несуществующих маршрутов
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

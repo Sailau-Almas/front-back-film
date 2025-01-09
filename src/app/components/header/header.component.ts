@@ -1,4 +1,5 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 
 @Component({
@@ -9,17 +10,22 @@ import { AuthService } from '../../auth/auth.service';
 export class HeaderComponent {
   isLoggedIn: boolean = false;
 
-  constructor(private authService: AuthService) {
-    // Проверяем статус авторизации
+  constructor(private router: Router, private authService: AuthService) {
     this.authService.isAuthenticated().subscribe(status => {
       this.isLoggedIn = status;
     });
   }
 
-  login() {
-    this.authService.login().subscribe(() => {
-      this.isLoggedIn = true;
-    });
+  goHome() {
+    this.router.navigate(['']);
+  }
+
+  goLogin() {
+    this.router.navigate(['/login']);
+  }
+
+  goRegister() {
+    this.router.navigate(['/register']);
   }
 
   logout() {

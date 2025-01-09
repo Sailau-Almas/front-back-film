@@ -8,7 +8,6 @@ import { BehaviorSubject } from "rxjs";
 import { MatSelectChange } from "@angular/material/select";
 import { AuthService } from './auth/auth.service';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,6 +23,8 @@ export class AppComponent {
   genreList = genreList;
   isLikedFilm$ = new BehaviorSubject<boolean>(true);
   isLoggedIn: boolean = false; // Переменная для авторизации
+  email = '';  // Added email field
+  password = '';  // Added password field
 
   constructor(
     public modalService: ModalService,
@@ -69,7 +70,7 @@ export class AppComponent {
 
   // Логика для входа
   login() {
-    this.authService.login().subscribe(() => {
+    this.authService.login(this.email, this.password).subscribe(() => {
       this.isLoggedIn = true;
     });
   }

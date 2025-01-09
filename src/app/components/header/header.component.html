@@ -1,9 +1,6 @@
-<header>
-  <h1>Film Catalog</h1>
-  <nav>
-    <a routerLink="/">Home</a>
-    <a routerLink="/auth">Login</a>
-    <a routerLink="/register">Register</a>
-    <a routerLink="/favorites">Favorites</a>
-  </nav>
-</header>
+<nav class="navbar">
+  <a (click)="goHome()" class="nav-link">Home</a>
+  <a (click)="goLogin()" class="nav-link">Login</a>
+  <a (click)="goRegister()" class="nav-link">Register</a>
+  <a *ngIf="isLoggedIn" (click)="logout()" class="nav-link logout-btn">Logout</a>
+</nav>

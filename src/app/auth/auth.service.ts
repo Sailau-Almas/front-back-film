@@ -8,24 +8,43 @@ export class AuthService {
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
 
   constructor() {
-    // Проверяем в localStorage, если есть данные о пользователе, считаем его авторизованным
     const user = localStorage.getItem('user');
     if (user) {
       this.isAuthenticatedSubject.next(true);
     }
   }
 
-  // Метод для входа
-  login(): Observable<void> {
+  register(email: string, password: string): Observable<void> {
     return new Observable(observer => {
-      localStorage.setItem('user', 'loggedIn');
-      this.isAuthenticatedSubject.next(true);
-      observer.next();
-      observer.complete();
+      if (email && password) {
+        localStorage.setItem('user', JSON.stringify({ email, password }));
+        this.isAuthenticatedSubject.next(true);
+        observer.next();
+        observer.complete();
+      } else {
+        observer.error('Registration failed');
+      }
     });
   }
 
-  // Метод для выхода
+  login(email: string, password: string): Observable<void> {
+    return new Observable(observer => {
+      const user = localStorage.getItem('user');
+      if (user) {
+        const userData = JSON.parse(user);
+        if (userData.email === email && userData.password === password) {
+          this.isAuthenticatedSubject.next(true);
+          observer.next();
+          observer.complete();
+        } else {
+          observer.error('Invalid credentials');
+        }
+      } else {
+        observer.error('No user found');
+      }
+    });
+  }
+
   logout(): Observable<void> {
     return new Observable(observer => {
       localStorage.removeItem('user');
@@ -35,7 +54,6 @@ export class AuthService {
     });
   }
 
-  // Метод для проверки, авторизован ли пользователь
   isAuthenticated(): Observable<boolean> {
     return this.isAuthenticatedSubject.asObservable();
   }
